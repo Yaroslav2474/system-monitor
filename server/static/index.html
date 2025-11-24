@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitor</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Мониторинг системы</h1>
+            <div class="status-container">
+                <span class="status-indicator" id="status-indicator"></span>
+                <span id="status-text">Подключение к серверу...</span>
+            </div>
+            <div class="timestamp">
+                Последнее обновление: <span id="timestamp">-</span>
+            </div>
+        </header>
+        
+        <div class="grid">
+            <div class="card cpu">
+                <h2>💻 Загрузка процессора</h2>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>CPU</span>
+                        <span id="cpu-value">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress cpu" id="cpu-progress" style="width: 0%">0%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card gpu">
+                <h2>🎮 Загрузка видеокарты (RX 580)</h2>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>GPU</span>
+                        <span id="gpu-value">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress gpu" id="gpu-progress" style="width: 0%">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card processes">
+            <h2>📈 Топ 10 процессов по загрузке CPU</h2>
+            <div id="processes-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Имя процесса</th>
+                            <th>PID</th>
+                            <th>Загрузка CPU (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="processes-table">
+                        <tr>
+                            <td colspan="3" class="loading">
+                                <div class="spinner"></div>
+                                <div>Загрузка данных...</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card metrics">
+            <h2>📊 Средние показатели за последнюю минуту</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Средняя загрузка CPU</div>
+                    <div class="metric-value" id="avg-cpu">-</div>
+                    <div class="metric-label">%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Средняя загрузка GPU</div>
+                    <div class="metric-value" id="avg-gpu">-</div>
+                    <div class="metric-label">%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
